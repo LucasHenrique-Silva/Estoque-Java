@@ -1,4 +1,4 @@
-package com.lucas.estoque.DTO;
+package com.lucas.estoque.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

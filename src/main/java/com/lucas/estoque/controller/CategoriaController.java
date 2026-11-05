@@ -1,7 +1,7 @@
 package com.lucas.estoque.controller;
 
-import com.lucas.estoque.DTO.CategoriaRequest;
-import com.lucas.estoque.DTO.CategoriaResponse;
+import com.lucas.estoque.dto.CategoriaRequest;
+import com.lucas.estoque.dto.CategoriaResponse;
 import com.lucas.estoque.service.CategoriaService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;

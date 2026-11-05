@@ -1,8 +1,8 @@
 package com.lucas.estoque.service;
 
 
-import com.lucas.estoque.DTO.CategoriaRequest;
-import com.lucas.estoque.DTO.CategoriaResponse;
+import com.lucas.estoque.dto.CategoriaRequest;
+import com.lucas.estoque.dto.CategoriaResponse;
 import com.lucas.estoque.entity.Categoria;
 import com.lucas.estoque.repository.CategoriaRepository;
 import com.lucas.estoque.shared.exception.BusinessException;
@@ -43,6 +43,9 @@ public class CategoriaService {
 
     @Transactional
     public CategoriaResponse atualizar(Long id, CategoriaRequest req) {
+        if(repository.existsByNomeIgnoreCase(req.nome()) && !buscarEntidade(id).getNome().equalsIgnoreCase(req.nome())){
+            throw new BusinessException("Ja existe uma categoria com esse nome");
+        }
         Categoria categoria = buscarEntidade(id);
         categoria.setNome(req.nome());
         categoria.setDescricao(req.descricao());
